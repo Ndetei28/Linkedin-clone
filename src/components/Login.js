@@ -188,13 +188,13 @@ const Google = styled.button`
 
     span{
         font-size: 20px;
-        padding-left: 10px;
+        margin-left: 10px;
     }
 
     @media(max-width: 768px){
         span{
             font-size: 17px;
-            padding-left: 10px;
+            margin-left: 10px;
         }
     }
 
