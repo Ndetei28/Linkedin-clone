@@ -3,7 +3,32 @@ import styled from "styled-components";
 const Main = (props) => {
   return (
     <Container>
-      <ShareBox>Share</ShareBox>
+      <ShareBox>
+        <div>
+          <img src="/images/user.svg" alt="user" />
+          <button>
+            <span>What do you want to talk about?</span>
+          </button>
+        </div>
+        <div>
+          <button>
+            <img src="/images/camera.svg" alt="icon" />
+            <span>Photo</span>
+          </button>
+          <button>
+            <img src="/images/video.svg" alt="video-icon" />
+            <span>Video</span>
+          </button>
+          <button>
+            <img src="/images/calendar.svg" alt="event-icon" />
+            <span>Event</span>
+          </button>
+          <button>
+            <img src="/images/copywriting.svg" alt="event-icon" />
+            <span>Write Article</span>
+          </button>
+        </div>
+      </ShareBox>
     </Container>
   );
 };
@@ -25,6 +50,65 @@ const CommonCard = styled.div`
 const ShareBox = styled(CommonCard)`
   display: flex;
   flex-direction: column;
+  color: #958b7b;
+  margin: 0 0 8px;
+  background: white;
+
+  div {
+    button {
+      outline: none;
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 48px;
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    &:first-child {
+      display: flex;
+      align-items: center;
+      padding: 8px 16px 0px 16px;
+
+      img {
+        width: 48px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+
+      button {
+        margin: 4px 0;
+        flex-grow: 1;
+        border-radius: 35px;
+        padding-left: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        background-color: white;
+        text-align: left;
+      }
+    }
+
+    &:nth-child(2) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding-bottom: 4px;
+
+      button {
+        img {
+          width: 24px;
+          height: 24px;
+          margin: 0 4px 0 -2px;
+        }
+
+        span {
+          color: grey;
+        }
+      }
+    }
+  }
 `;
 
 export default Main;
