@@ -34,10 +34,7 @@ const RightSide = (props) => {
         </Recommendation>
       </FollowCard>
       <BannerCard>
-        <img
-          src="https://static-exp1.licdn.com/scds/common/u/images/promo/ads/li_evergreen_jobs_ad_300x250_v1.jpg"
-          alt="banner-card"
-        />
+        <img src="/images/jobs-image.jpg" alt="banner-card" />
       </BannerCard>
     </Container>
   );
@@ -116,6 +113,15 @@ const Recommendation = styled.a`
   font-size: 13px;
 `;
 
-const BannerCard = styled(FollowCard)``;
+const BannerCard = styled.div`
+  text-align: center;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0;
+  border: none;
+  box-shadow: 0 0 0 1px rgb(0 0 0/ 15%), 0 0 0 rgb(0 0 0/ 20%);
+`;
 
 export default RightSide;
