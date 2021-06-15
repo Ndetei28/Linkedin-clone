@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { signOutAPI } from "../actions";
@@ -59,7 +60,6 @@ const Header = (props) => {
                   <img src="/images/user.svg" alt="user-default" />
                 )}
                 <span>
-                  Me
                   <img src="/images/down-icon.svg" alt="drop-down" />
                 </span>
               </a>
@@ -71,7 +71,6 @@ const Header = (props) => {
             <Work>
               <a>
                 <img src="/images/nav-work.svg" alt="drop-down" />
-                <span>Work</span>
                 <img src="/images/down-icon.svg" alt="drop-down" />
               </a>
             </Work>
@@ -120,7 +119,7 @@ const Search = styled.div`
       background-color: #eef3f8;
       border-radius: 2px;
       color: rgba(0, 0, 0, 0.9);
-      width: 218px;
+      width: 325px;
       padding: 0 8px 0 40px;
       line-height: 1.75;
       font-weight: 400;
@@ -195,7 +194,6 @@ const NavList = styled.li`
     line-height: 1.5;
     min-height: 42px;
     min-width: 80px;
-    position: relative;
     text-decoration: none;
   }
 
@@ -207,6 +205,18 @@ const NavList = styled.li`
 
   @media (max-width: 768px) {
     min-width: 70px;
+    padding: 0;
+    margin: 0;
+
+    img {
+      display: flex;
+      text-align: center;
+      align-items: center;
+    }
+
+    span {
+      font-size: 12px;
+    }
   }
 
   &:hover,
@@ -253,8 +263,8 @@ const User = styled(NavList)`
   }
 `;
 
-const Work = styled(User)`
-  border-left: 1px solid rgba(0, 0, 0, 0.08);
+const Work = styled.div`
+  display: none;
 `;
 
 const mapStateToProps = (state) => {

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import styled from "styled-components";
 import { connect } from "react-redux";
 
@@ -8,13 +9,16 @@ const LeftSide = (props) => {
         <UserInfo>
           <CardBackground />
           <a>
-            <Photo />
+            <Photo>
+              {props.user ? (
+                <img src={props.user.photoURL} alt="img-user" />
+              ) : (
+                <img src="/images/photo.svg" alt="user-img" />
+              )}
+            </Photo>
             <Link>
               Welcome, {props.user ? props.user.displayName : "there!"}
             </Link>
-          </a>
-          <a>
-            <AddPhotoText>Add a photo</AddPhotoText>
           </a>
         </UserInfo>
         <Widget>
@@ -55,7 +59,11 @@ const LeftSide = (props) => {
   );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
 
 const ArtCard = styled.div`
   text-align: center;
@@ -85,19 +93,20 @@ const CardBackground = styled.div`
 `;
 
 const Photo = styled.div`
-  box-shadow: none;
-  background-image: url("/images/photo.svg");
-  width: 72px;
-  height: 72px;
-  box-sizing: border-box;
-  background-clip: content-box;
-  background-color: white;
-  background-position: center;
-  background-size: 60%;
-  background-repeat: no-repeat;
-  border: 2px solid white;
-  margin: -38px auto 12px;
-  border-radius: 50%;
+  img {
+    box-shadow: none;
+    width: 72px;
+    height: 72px;
+    box-sizing: border-box;
+    background-clip: content-box;
+    background-color: white;
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    border: 2px solid white;
+    margin: -38px auto 12px;
+    border-radius: 50%;
+  }
 `;
 
 const Link = styled.div`
@@ -105,14 +114,6 @@ const Link = styled.div`
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.9);
   font-weight: 600;
-`;
-
-const AddPhotoText = styled.div`
-  color: #0a66c2;
-  margin-top: 4px;
-  font-size: 12px;
-  line-height: 1.33;
-  font-weight: 400;
 `;
 
 const Widget = styled.div`
